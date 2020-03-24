@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.nickNameInput.setOnKeyListener(View.OnKeyListener { v: View?, keyCode: Int, event: KeyEvent? ->
+        binding.nickNameInput.setOnKeyListener(View.OnKeyListener { _: View?, keyCode: Int, event: KeyEvent? ->
             if ((event?.action == KeyEvent.ACTION_DOWN) and (keyCode == KeyEvent.KEYCODE_ENTER)) {
                 binding.nickNameInput.visibility = View.GONE
                 binding.nickName.text = binding.nickNameInput.text
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             return@OnKeyListener false
         })
 
-        binding.nickName.setOnClickListener { v: View ->
+        binding.nickName.setOnClickListener {
             binding.nickName.visibility = View.GONE
             binding.nickNameInput.visibility = View.VISIBLE
         }
